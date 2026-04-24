@@ -51,6 +51,32 @@ Use this pattern when invoking each command:
 5. "Use `commands/code_review_05.md` with plan `<file>`."
 6. "Use `commands/write_docs_06.md` with plan `<file>` and review `<file>`."
 
+## Reuse In A New Repo
+
+If you want to start from this repo, keep the commands, and connect to a different project remote:
+
+1. Clone this repo locally.
+2. Remove the current `origin` remote.
+3. Add your new project repo as `origin`.
+4. Push to the new remote.
+
+```powershell
+git clone <this-commands-repo-url> my-new-project
+cd my-new-project
+git remote remove origin
+git remote add origin <new-project-repo-url>
+git push -u origin main
+```
+
+Optional (recommended): keep this commands repo as `upstream` so you can pull future command updates.
+
+```powershell
+git remote add upstream <this-commands-repo-url>
+git fetch upstream
+```
+
+When you want command updates later, selectively copy or merge from `upstream`.
+
 ## Notes
 
 - Prefer code as source of truth when plan/review/docs conflict.
