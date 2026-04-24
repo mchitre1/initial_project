@@ -15,10 +15,10 @@ This repository contains reusable prompt files for a feature workflow in Cursor.
 
 1. Run `create_brief_01.md` with the product/problem description.
 2. Run `plan_feature_02.md` with the approved feature details.
-3. Run `implement_feature_03.md` using the plan as the scope.
+3. Run `implement_feature_03.md` for that exact plan file (one plan = one feature).
 4. Run `validate_feature_04.md` to check quality gates.
 5. Run `code_review_05.md` against implementation and plan.
-6. Fix review findings (and re-run `validate_feature_04.md` if needed).
+6. If validation/review finds issues, re-run `implement_feature_03.md` for the same feature plan and repeat steps 4-5.
 7. Run `write_docs_06.md` after code is stable.
 
 ## Why This Is Minimal
@@ -26,8 +26,8 @@ This repository contains reusable prompt files for a feature workflow in Cursor.
 This six-command setup keeps each step focused on one outcome while avoiding redundant artifacts:
 
 - `brief` defines product context once.
-- `plan` defines implementation scope once.
-- `implement` executes scope without rewriting plan/brief.
+- `plan` defines implementation scope for one feature.
+- `implement` executes that one feature scope without rewriting plan/brief.
 - `validate` checks readiness without creating extra docs by default.
 - `review` records quality findings.
 - `docs` updates user-facing documentation based on actual code.
